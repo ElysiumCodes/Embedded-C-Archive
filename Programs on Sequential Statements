@@ -1,0 +1,56 @@
+include<stdio.h>
+
+void main(){
+	data_size();
+	temp_conv();
+	carCalc();
+	quad();
+}
+
+void data_size(){
+	printf("Size of int is %d bytes\n", sizeof(int));
+	printf("Size of int is %d bytes\n", sizeof(float));
+	printf("Size of int is %d bytes\n", sizeof(char));
+	printf("Size of int is %d bytes\n", sizeof(long));
+	printf("Size of int is %d bytes\n\n", sizeof(double));
+}
+
+
+void temp_conv(){
+	float temp_c;
+	printf("Enter temperature in celsius: \n");
+	scanf("%f",&temp_c);
+	
+	float temp_f=(temp_c*1.8)+32;
+	float temp_c1=(temp_f-32)*0.5;
+	
+	printf("Temperature in fahrenheit is: %0.2f\n",temp_f);
+	printf("Temperature in Celcius is: %0.2f\n\n",temp_c1);
+}
+
+
+void carCalc(){
+	float carCost,tax,disc;
+	printf("Enter the price of the car: \n");
+	scanf("%f",&carCost);
+	printf("Enter tax in your state: \n");
+	scanf("%f",&tax);
+	printf("Discount%? :\n");
+	scanf("%f",&disc);
+	
+	float carFinal=carCost+(0.01*tax*carCost)-(0.01*disc*carCost);
+	printf("%0.2f\n\n", carFinal);
+}
+
+
+void quad(){
+	printf("Expression: x^4+y^2\n");
+	printf("Enter x:\n");
+	printf("Enter y:\n");
+	int x,y;
+	scanf("%d",&x);
+	scanf("%d",&y);
+	int out=(x*x*x*x)+(y*y);
+
+	printf("%d",out);
+}
