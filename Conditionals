@@ -24,7 +24,7 @@ void main(){
 	
 
 	int score;
-	sum+=printf("Enter score.\n");
+	printf("Enter score.\n");
 	scanf("%d",&score);
 	
 	if(score>100||score<0){
@@ -74,6 +74,7 @@ void main(){
 			break;
 		case '/':
 			printf("%d",a/b);
+   break;
 		default:
 			printf("Invalid input\n");
 	}
