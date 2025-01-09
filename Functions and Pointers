@@ -1,0 +1,83 @@
+#include<stdio.h>
+static int scope1;
+int scope2;
+int scope3;
+
+
+
+
+
+int factorial(int a, int prod){
+	if(a>0){
+		prod=prod*a;
+		factorial(a-1,prod);
+	}
+	else{return prod;}
+}
+
+void swap1(int *p1, int *p2){
+	int temp= *p2;
+	*p2=*p1; 
+	*p1=temp;
+}
+
+void swap2(int a,int b){
+	int temp=a;
+	a=b;
+	b=temp;
+}
+
+void scopeTest1(int x){
+	scope1++;
+	++x;
+}
+
+void scopeTest2(int x){
+	printf("%d \n",++x);
+}
+
+void scopeTest3(int x){
+	printf("%d \n",++x);
+}
+
+int main(){
+	int i;
+	
+	int fact;
+	printf("Enter the number to find factorial of: \n");
+	scanf("%d",&fact);
+	printf("Factorial is :%d\n",factorial(fact,1));
+	
+	
+
+	static int a,b;
+	printf("Enter the numbers to be swapped: \n");
+	scanf("%d %d",&a,&b);
+	printf("Before Swap: %d %d\n",a,b);
+	
+	swap2(a,b);
+	printf("Swapped by value: %d %d\n",a,b);
+	
+	int *p1=&a,*p2=&b;
+	swap1(p1,p2);
+	printf("Swapped by reference: %d %d\n\n",a,b);
+	
+	
+	
+	int scopetest1=10;
+	for(i=0;i<10;i++){
+		scopeTest1(scopetest1);
+	}
+	printf("%d \n%d\n\n",scopetest1, scope1);
+	
+	int scopetest2=10;
+	int scope2;
+	scopeTest2(scopetest2);
+	printf("%d\n\n",scopetest2);
+	
+	scope3=10;
+	int scopetest3=10;
+	scopeTest3(scopetest3);
+	printf("%d\n",scope3);	
+	return 0;
+}
