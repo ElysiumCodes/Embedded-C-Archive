@@ -1,0 +1,109 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+
+void pwChecker();
+void dateConv();
+
+int main(){
+	//pwChecker();
+	dateConv();
+}
+
+void pwChecker(){
+		char ref[26]="abcdefghijklmnopqrstuvxyz";
+	char pw[7];
+	
+	printf("Enter the pw: \n");
+	scanf("%s",pw);
+	if(strlen(pw)>15||strlen(pw)<3){
+		printf("Invalid length");
+	}
+	
+	int pos=strspn(pw,ref);
+	
+	if(pos==strlen(pw)){
+		printf("Use capitals or special characters");
+	}
+	else{
+		printf("Good to go");
+	}
+}
+
+void dateConv(){
+	int day, mon, year, days_in_feb = 28, 
+            doy;    // day of year
+
+    printf("Enter date (MM/DD/YYYY): ");
+    scanf("%d/%d/%d", &mon, &day, &year);
+
+    doy = day;
+
+    // check for leap year
+    if( (year % 4 == 0 && year % 100 != 0 ) || (year % 400 == 0) )
+    {
+        days_in_feb = 29;
+    }
+
+    switch(mon)
+    {
+        case 2:
+            doy += 31;
+            break;
+        case 3:
+            doy += 31+days_in_feb;
+            break;
+        case 4:
+            doy += 31+days_in_feb+31;
+            break;
+        case 5:
+            doy += 31+days_in_feb+31+30;
+            break;
+        case 6:
+            doy += 31+days_in_feb+31+30+31;
+            break;
+        case 7:
+            doy += 31+days_in_feb+31+30+31+30;
+            break;            
+        case 8:
+            doy += 31+days_in_feb+31+30+31+30+31;
+            break;
+        case 9:
+            doy += 31+days_in_feb+31+30+31+30+31+31;
+            break;
+        case 10:
+            doy += 31+days_in_feb+31+30+31+30+31+31+30;            
+            break;            
+        case 11:
+            doy += 31+days_in_feb+31+30+31+30+31+31+30+31;            
+            break;                        
+        case 12:
+            doy += 31+days_in_feb+31+30+31+30+31+31+30+31+30;            
+            break;                                    
+    }
+
+	
+	switch(doy/7){
+		case 0:
+			printf("Monday");
+			break;
+		case 1:
+			printf("Tueday");
+			break;
+		case 2:
+			printf("Wednesday");
+			break;
+		case 3:
+			printf("Thursday");
+			break;
+		case 4:
+			printf("Friday");
+			break;
+		case 5:
+			printf("Saturday");
+			break;
+		case 6:
+			printf("Sunday");
+			break;
+	}	
+}
