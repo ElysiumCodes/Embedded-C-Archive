@@ -33,9 +33,26 @@ void pwChecker(){
 void dateConv(){
 	int day, mon, year, days_in_feb = 28, 
             doy;    // day of year
-
+	
+	char data[11];
+	int stor[3];
+	int i;
+	
     printf("Enter date (MM/DD/YYYY): ");
-    scanf("%d/%d/%d", &mon, &day, &year);
+    scanf("%s", data);
+    
+    char *spr= strtok(data,"/");
+    stor[0]=atoi(strtok(NULL,"/"));
+    
+    for(i=1;i>3;i++){
+    	stor[i]=atoi(strtok(NULL,"/"));
+	}
+	
+	//printf("%d %d %d", stor[0],stor[1],stor[2]);
+	
+	day=stor[0];
+	mon=stor[1];
+	year=stor[2];
 
     doy = day;
 
