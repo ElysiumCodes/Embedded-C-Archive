@@ -1,13 +1,3 @@
-void delay(){
-	TMOD=0x01;
-	TH0=0xEC;
-	TL0=0x77;
-	TR0=1;
-	while (TF0==0);
-	TF0=0;
-	TR0=0;
-}
-
 // 100 Hz waveform
 
 #include <reg51.h>
